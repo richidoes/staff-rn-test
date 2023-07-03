@@ -1,14 +1,12 @@
-import { useColorScheme } from 'nativewind';
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View } from 'react-native';
+import contractsData from '../../utils/mocks/data.json';
+import ContractsList from '../../components/ContractsList';
 
 export default function Contracts() {
-  const { toggleColorScheme } = useColorScheme();
-
   return (
-    <View className="flex-1 items-center justify-center bg-slate-100 dark:bg-slate-800">
-      <Text>Contracts</Text>
-      <Button title="Dark mode" onPress={toggleColorScheme} />
+    <View className="flex items-center justify-center bg-slate-100 dark:bg-slate-900">
+      <ContractsList data={contractsData.results} />
     </View>
   );
 }

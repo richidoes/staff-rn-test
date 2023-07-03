@@ -8,7 +8,7 @@ import ThemeSwitch from '../../components/ThemeSwitch';
 
 export default function CustomDrawerContent(props) {
   return (
-    <View className="relative w-full h-full bg-white dark:bg-black">
+    <View className="relative w-full h-full bg-white dark:bg-slate-800">
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
