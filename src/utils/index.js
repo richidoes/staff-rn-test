@@ -22,3 +22,20 @@ export const contractCardFormattedData = (data) => {
     participants,
   };
 };
+
+export const createPagesCount = () => {
+  const pages = [];
+  /**
+   * Setting only 50 pages as per now.
+   * Lots of data exist on db,
+   * so for demo purposes
+   * we will display only 50 pages
+ */
+  const maxPages = 50;
+
+  for (let page = 1; page <= maxPages; page++) {
+    pages.push(page);
+  }
+
+  return { pages, maxPages };
+};

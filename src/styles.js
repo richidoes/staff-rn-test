@@ -12,4 +12,15 @@ export const styles = {
     // background color must be set
     backgroundColor: 'white', // invisible color
   },
+  paginationButtonShadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 2.65,
+    elevation: 2,
+    // backgroundColor: 'white',
+  },
 };

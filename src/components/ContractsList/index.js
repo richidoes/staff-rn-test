@@ -3,11 +3,13 @@ import { FlatList, View } from 'react-native';
 import ContractCard from '../ContractCard';
 
 export default function ContractsList({ data }) {
+  const contractsData = data?.results || data;
+
   return (
     <FlatList
       className="flex w-full h-full pt-6"
       contentContainerStyle={{ padding: 12 }}
-      data={data}
+      data={contractsData}
       renderItem={renderItem}
       ListFooterComponent={renderFooter}
     />
@@ -15,11 +17,11 @@ export default function ContractsList({ data }) {
 }
 
 function renderItem({ item }) {
-  return <ContractCard data={item} />;
+  return <ContractCard data={item} key={item?.id} />;
 }
 
 function renderFooter() {
   return (
-    <View className="w-full h-24 bg-transparent" />
+    <View className="w-full h-6 bg-transparent" />
   );
 }
