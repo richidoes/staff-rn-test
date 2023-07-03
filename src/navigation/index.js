@@ -1,5 +1,4 @@
 import React from 'react';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { useColorScheme } from 'nativewind';
@@ -7,21 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import Contracts from '../pages/Contracts';
 import CustomHeader from './CustomHeader';
 import CustomDrawerContent from './CustomDrawerContent';
-// import ContractDetails from '../pages/ContractDetails';
-
-// const Stack = createNativeStackNavigator();
-
-// function ContractsDetailsStackNavigator() {
-//   return (
-//     <Stack.Navigator
-//       initialRouteName="ContractsDetails"
-//       screenOptions={{
-//       }}
-//     >
-//       <Stack.Screen name="ContractsDetails" component={ContractsDetails} />
-//     </Stack.Navigator>
-//   );
-// }
+import ContractDetails from '../pages/ContractDetails';
 
 const Drawer = createDrawerNavigator();
 
@@ -42,7 +27,21 @@ function DrawerStackNavigator() {
         drawerInactiveTintColor: textColor,
       }}
     >
-      <Drawer.Screen name="Contracts" component={Contracts} />
+
+      <Drawer.Screen
+        options={{ title: 'Contratos' }}
+        name="Contracts"
+        component={Contracts}
+      />
+
+      <Drawer.Screen
+        options={{
+          drawerItemStyle: { display: 'none' },
+          title: 'Detalles del contrato',
+        }}
+        name="ContractDetails"
+        component={ContractDetails}
+      />
     </Drawer.Navigator>
   );
 }

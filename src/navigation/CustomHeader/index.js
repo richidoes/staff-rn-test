@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import SafeArea from '../../components/SafeArea';
 
-export default function CustomHeader({ navigation, route }) {
+export default function CustomHeader({ navigation, route, options }) {
   const onPressHamburgerMenu = navigation?.toggleDrawer;
-  const title = route?.name;
+  const title = options?.title || route?.name;
 
   return (
     <SafeArea edges={['top', 'left', 'right']}>

@@ -3,10 +3,17 @@ import {
   View, Text, Pressable,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { contractCardFormattedData } from '../../utils';
 import { styles } from '../../styles';
 
 export default function ContractCard({ data }) {
+  const navigation = useNavigation();
+
+  const handleOnPressCard = () => {
+    navigation.navigate('ContractDetails', { data });
+  };
+
   const {
     tenderTitle,
     publisher,
@@ -22,7 +29,7 @@ export default function ContractCard({ data }) {
   const participantsText = participants === 1 ? `${participants} participante` : `${participants} participantes`;
 
   return (
-    <Pressable className="relative flex w-full h-52 mb-8 rounded-xl" style={styles.shadow}>
+    <Pressable onPress={handleOnPressCard} className="relative flex w-full h-52 mb-8 rounded-xl" style={styles.shadow}>
       <View className="flex w-full h-full p-2 rounded-xl overflow-hidden bg-white dark:bg-slate-800">
         <Text className="font-bold text-lg text-black dark:text-white">{tenderTitle}</Text>
 
