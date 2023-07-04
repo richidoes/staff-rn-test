@@ -50,10 +50,11 @@ module.exports = {
     'react/style-prop-object': 0,
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
+    'react/jsx-no-useless-fragment': 0,
+    'consistent-return': 0,
     'func-names': 0,
     'no-plusplus': 0,
     'no-use-before-define': 0,
-    'consistent-return': 2,
     semi: [1, 'always'],
   },
 };

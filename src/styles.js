@@ -1,5 +1,7 @@
 export const styles = {
-  page: 'w-full h-screen',
+  page: 'w-full h-full bg-slate-100 dark:bg-slate-900',
+  accordionText: 'flex flex-shrink font-normal text-base text-black dark:text-white',
+  defaultBackgroundColor: 'bg-white dark:bg-slate-800',
   shadow: {
     shadowColor: '#000',
     shadowOffset: {
