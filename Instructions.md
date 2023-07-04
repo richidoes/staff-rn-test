@@ -29,16 +29,39 @@ From Developer android:
 
 > Be sure to expose the Android SDK path to an environment variable of name **ANDROID\_SDK**. Make use of `~/.bash_profile` or `~/.bashrc` to expose said variable on system startup.
 
+ * **Expo CLI** - This software is required if you want to run and build your app. You can install it by running this command:
+
+ - `npm install -g expo-cli`
+ 
 ## Installation
 Clone the repo using git directly on the commands tools:
 
-    git clone https://github.com/richidoes/staff-rn-test.git
+ - `git clone https://github.com/richidoes/staff-rn-test.git`
 
 After cloning the project repository you can install its dependencies running on the command line the following commands:
 
+- `cd staff-rn-test`
  - Either `npm i` or  `yarn install`
  - `cd ios`
  - `pod install`
  - `cd ..`
 
-Once you've installed the dependencies you need to create at least one build for the platform you want to run the app:
+Once you've installed the dependencies you need to create at least one Development build for the platform you want to run the app:
+
+- Build your native Android project  `npx expo run:android`
+- Build your native iOS project `npx expo run:ios`
+- Now if no simulator is launched after the build is complete you can go to the terminal and press Either `i` to open the iOS  simulator or  `a` to open the Android simulator where the app was installed
+ 
+ For more info you can go to the official Expo documentation [build native apps locally.](https://docs.expo.dev/workflow/prebuild/#usage-with-expo-cli-run-commands) 
+
+## Deliverables
+If you just want to test the final result of the app you can use the below links:
+
+[Expo Android APK](https://expo.dev/artifacts/eas/jGUz29YGShHpqem71wxdK6.apk)
+Note: If you have previously installed the app on simulator or device, please delete it before installing this apk, this will avoid any issue while installing the apk.
+
+[Expo iOS tar,gz](https://expo.dev/artifacts/eas/bzji51ec8uHgF4H2BULg1B.tar.gz)
+Notes: 
+ - This iOS file only works on simulator.
+ - App is inside the tar.gz file, un-zip the file and then drag and drop the app into the iOS simulator
+ - If you have previously installed the app on simulator or device, please delete it before installing this app, this will avoid any issue while installing the app.
