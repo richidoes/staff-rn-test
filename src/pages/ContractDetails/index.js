@@ -3,16 +3,18 @@ import {
   View, Text, TouchableOpacity, FlatList,
 } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
+import { Feather } from '@expo/vector-icons';
+import * as Linking from 'expo-linking';
 import { styles } from '../../styles';
 import { contractDetailsFormattedData } from '../../utils';
 
 export default function ContractDetails({ route }) {
   const [activeSections, setActiveSections] = useState([]);
   const data = route?.params?.data;
-  const { tenderTitle, accordionData } = contractDetailsFormattedData(data);
+  const { tenderTitle, accordionData, contractURL } = contractDetailsFormattedData(data);
 
   return (
-    <View className={`${styles.page} flex items-center`}>
+    <View className={`${styles.page} flex items-center relative`}>
       <Tender title={tenderTitle} />
       <Accordion
         sections={accordionData}
@@ -23,6 +25,7 @@ export default function ContractDetails({ route }) {
         touchableComponent={TouchableOpacity}
         containerStyle={{ width: '100%' }}
       />
+      <ContractSourceLink url={contractURL} />
     </View>
 
   );
@@ -69,7 +72,7 @@ function WinnersSection({ data }) {
           className="flex w-full h-full"
           ListFooterComponent={renderFooter}
           renderItem={({ item }) => (
-            <View className="flex w-[95%] min-h-20 justify-center ml-2 mt-4 mb-1 p-2 rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.shadow}>
+            <View className="flex w-[95%] min-h-32 justify-center ml-2 mt-4 mb-1 p-2 rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.shadow}>
               <View className="flex flex-row">
                 <Text className={styles.accordionText}>{'Titulo\u00a0: '}</Text>
                 <Text className={styles.accordionText}>{item?.title}</Text>
@@ -77,6 +80,14 @@ function WinnersSection({ data }) {
               <View className="flex flex-row mt-1">
                 <Text className={styles.accordionText}>{'Nombre\u00a0: '}</Text>
                 <Text className={styles.accordionText}>{item?.name}</Text>
+              </View>
+              <View className="flex flex-row mt-1">
+                <Text className={styles.accordionText}>{'Monto\u00a0: '}</Text>
+                <Text className={styles.accordionText}>{item?.amount}</Text>
+              </View>
+              <View className="flex flex-row mt-1">
+                <Text className={styles.accordionText}>{'Vigencia\u00a0: '}</Text>
+                <Text className={styles.accordionText}>{item?.contractPeriod}</Text>
               </View>
             </View>
           )}
@@ -150,6 +161,18 @@ function ParticipantsSection({ data }) {
     </>
 
   );
+}
+
+function ContractSourceLink({ url }) {
+  return url ? (
+    <TouchableOpacity
+      onPress={() => Linking.openURL(url)}
+      className="absolute flex flex-row top-[65%] justify-center items-center "
+    >
+      <Text className="font-medium text-lg underline mr-2 text-indigo-600">Fuente</Text>
+      <Feather name="external-link" size={24} color="#4F46E5" />
+    </TouchableOpacity>
+  ) : null;
 }
 
 function renderFooter() {

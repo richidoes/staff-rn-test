@@ -3,11 +3,13 @@ import { es } from 'date-fns/locale';
 
 export const DEFAULT_TENDER = 'LICITACION DESCONOCIDA';
 
+export const formatDates = (date) => format(new Date(date), 'PPP', { locale: es });
+
 export const contractCardFormattedData = (data) => {
   const tenderTitle = `${data?.releases[0]?.tender?.title || DEFAULT_TENDER} # ${data?.releases[0]?.tender?.id}`;
   const publisher = data?.releases[0]?.publisher?.name;
   const contractId = data?.releases[0]?.ocid;
-  const publicationDate = format(new Date(data?.releases[0]?.date), 'PPP', { locale: es });
+  const publicationDate = formatDates(data?.releases[0]?.date);
   const winners = data?.releases[0]?.awards?.length;
   const contracts = data?.releases[0]?.contracts?.length;
   const participants = data?.releases[0]?.parties?.length;
@@ -28,6 +30,7 @@ export const contractDetailsFormattedData = (data) => {
   const winners = getWinnersData(data?.releases[0]?.awards);
   const contracts = getContractData(data?.releases[0]?.contracts);
   const participants = getParticipantsData(data?.releases[0]?.parties);
+  const contractURL = data?.compiledRelease?.planning?.budget?.budgetBreakdown[0]?.url;
 
   const accordionData = [
     {
@@ -46,6 +49,7 @@ export const contractDetailsFormattedData = (data) => {
   return {
     tenderTitle,
     accordionData,
+    contractURL,
   };
 };
 
@@ -57,6 +61,8 @@ export const getWinnersData = (data) => {
   return data?.map((winner) => ({
     title: winner?.title,
     name: winner?.suppliers[0]?.name,
+    amount: `$${winner?.value?.amount} ${winner?.value?.currency}`,
+    contractPeriod: `${formatDates(winner?.contractPeriod?.startDate)} / ${formatDates(winner?.contractPeriod?.endDate)}`,
   }));
 };
 
