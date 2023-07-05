@@ -57,10 +57,10 @@ Once you've installed the dependencies you need to create at least one Developme
 ## Deliverables
 If you just want to test the final result of the app you can use the below links:
 
-[Expo Android APK](https://expo.dev/artifacts/eas/jGUz29YGShHpqem71wxdK6.apk)
+[Expo Android APK](https://expo.dev/artifacts/eas/k3z8Xcqq22ViVXiY6Nwmhc.apk)
 Note: If you have previously installed the app on simulator or device, please delete it before installing this apk, this will avoid any issue while installing the apk.
 
-[Expo iOS tar,gz](https://expo.dev/artifacts/eas/bzji51ec8uHgF4H2BULg1B.tar.gz)
+[Expo iOS tar,gz](https://expo.dev/artifacts/eas/bSdQH2fqDZ89eJiKBH8ELQ.tar.gz)
 Notes: 
  - This iOS file only works on simulator.
  - App is inside the tar.gz file, un-zip the file and then drag and drop the app into the iOS simulator
