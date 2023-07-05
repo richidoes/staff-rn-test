@@ -72,7 +72,7 @@ function WinnersSection({ data }) {
           className="flex w-full h-full"
           ListFooterComponent={renderFooter}
           renderItem={({ item }) => (
-            <View className="flex w-[95%] min-h-32 justify-center ml-2 mt-4 mb-1 p-2 rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.shadow}>
+            <View className="flex w-[95%] min-h-32 justify-center ml-2 mt-4 mb-1 p-2 rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.paginationButtonShadow}>
               <View className="flex flex-row">
                 <Text className={styles.accordionText}>{'Titulo\u00a0: '}</Text>
                 <Text className={styles.accordionText}>{item?.title}</Text>
@@ -112,7 +112,7 @@ function ContractsSection({ data }) {
           className="flex w-full h-full"
           ListFooterComponent={renderFooter}
           renderItem={({ item }) => (
-            <View className="flex w-[95%] min-h-28 ml-2 mt-4 mb-2 p-2 justify-center rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.shadow}>
+            <View className="flex w-[95%] min-h-28 ml-2 mt-4 mb-2 p-2 justify-center rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.paginationButtonShadow}>
               <View className="flex flex-row">
                 <Text className={styles.accordionText}>{'Titulo\u00a0: '}</Text>
                 <Text className={styles.accordionText}>{item?.title}</Text>
@@ -148,7 +148,7 @@ function ParticipantsSection({ data }) {
           className="flex w-full h-full"
           ListFooterComponent={renderFooter}
           renderItem={({ item }) => (
-            <View className="flex w-[95%] min-h-14 justify-center ml-2 mt-4 mb-1 p-2 rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.shadow}>
+            <View className="flex w-[95%] min-h-14 justify-center ml-2 mt-4 mb-1 p-2 rounded-xl bg-white dark:bg-slate-700" key={item?.title} style={styles.paginationButtonShadow}>
               <View className="flex flex-row">
                 <Text className={styles.accordionText}>{'Nombre\u00a0: '}</Text>
                 <Text className={styles.accordionText}>{item?.name}</Text>
